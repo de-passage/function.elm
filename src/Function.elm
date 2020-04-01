@@ -1,4 +1,4 @@
-module Function exposing (andMap, andThen, applyN, choose, curry, dimap, filterM, fix, flip, forM, ignore, join, lift2, lift3, lift4, lift5, map, mapAlways, mapM, on, optional, pure, sequence, uncurry, void)
+module Function exposing (andMap, andThen, applyN, choose, curry, dimap, filterM, fix, flip, forM, ignore, join, lift2, lift3, lift4, lift5, lift6, map, mapAlways, mapM, on, optional, pure, sequence, uncurry, void)
 
 
 map : (a -> b) -> (e -> a) -> (e -> b)
@@ -75,6 +75,7 @@ lift2 f g h e =
     f (g e) (h e)
 
 
+
 lift3 : (a -> b -> c -> d) -> (e -> a) -> (e -> b) -> (e -> c) -> e -> d
 lift3 f g h i e =
     f (g e) (h e) (i e)
@@ -88,6 +89,11 @@ lift4 f g h i j e =
 lift5 : (a -> b -> c -> d -> f -> g) -> (e -> a) -> (e -> b) -> (e -> c) -> (e -> d) -> (e -> f) -> e -> g
 lift5 f g h i j k e =
     f (g e) (h e) (i e) (j e) (k e)
+
+
+lift6 : (a -> b -> c -> d -> f -> g -> h) -> (e -> a) -> (e -> b) -> (e -> c) -> (e -> d) -> (e -> f) -> (e -> g) -> e -> h
+lift6 f g h i j k l e =
+    f (g e) (h e) (i e) (j e) (k e) (l e)
 
 
 fix : ((a -> b) -> a -> b) -> a -> b
